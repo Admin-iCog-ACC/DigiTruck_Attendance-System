@@ -15,13 +15,13 @@ dotenv.config({path: "./config.env"});
   process.env.DATABASE_PASSWORD
 );*/
 
-const connectionString = (process.env.DATABASE =
+/*const connectionString = (process.env.DATABASE =
   !"Error querySrv ESERVFAIL _mongodb._tcp.cluster0.f7q5i6k.mongodb.net"
     ? process.env.DATABASE
-    : process.env.DATABASE_LOCAL);
+    : process.env.DATABASE_LOCAL);*/
 
 mongoose
-  .connect(connectionString, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     //useCreateIndex: true,
     //useFindAndModify: false,

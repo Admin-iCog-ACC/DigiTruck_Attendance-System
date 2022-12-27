@@ -39,6 +39,7 @@ const sendErrorDev = (err, res) => {
 };
 
 const sendErrorProd = (err, res) => {
+  //operational , trusted error send message to client
   if (err.isOperational) {
     res.status(err.statusCode).json({
       status: err.status,
@@ -72,14 +73,15 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
     let error = {...err};
-    if (error.name === "CastError") error = handleCastErrorDB(err);
-    if (error.code === 11000) error = handleDuplicateFieldsDB(err);
-    if (error.name === "ValidationError") error = handleValidationErrorDB(err);
+    if (error.name === "CastError") error = handleCastErrorDB(error);
+    if (error.code === 11000) error = handleDuplicateFieldsDB(error);
+    if (error.name === "ValidationError")
+      error = handleValidationErrorDB(error);
     sendErrorProd(error, res);
   }
 
-  /* res.status(err.statusCode).json({
+  res.status(err.statusCode).json({
     status: err.status,
     message: err.message,
-  });*/
+  });
 };

@@ -23,9 +23,9 @@ dotenv.config({path: "./config.env"});
 mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
-    //useCreateIndex: true,
-    //useFindAndModify: false,
-    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    //useUnifiedTopology: true,
   })
   .then((con) => {
     console.log("Database connection succesfull..." + process.env.DATABASE);

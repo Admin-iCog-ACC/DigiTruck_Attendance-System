@@ -4,8 +4,8 @@ const studentController = require("../controllers/studentController");
 const router = express.Router();
 
 router.route("/").get(
-   authController.protect,
-   authController.restrictTo("user"),
+  //authController.protect,
+  //authController.restrictTo("user"),
   studentController.getAllStudents
 );
 router

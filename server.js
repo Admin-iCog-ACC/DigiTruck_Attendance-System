@@ -21,16 +21,14 @@ dotenv.config({path: "./config.env"});
     : process.env.DATABASE_LOCAL);*/
 
 mongoose
-  .connect(process.env.DATABASE_LOCAL, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     //useUnifiedTopology: true,
   })
   .then((con) => {
-    console.log(
-      "Database connection succesfull..." + process.env.DATABASE_LOCAL
-    );
+    console.log("Database connection succesfull..." + process.env.DATABASE);
   });
 
 const port = process.env.PORT || 3000;

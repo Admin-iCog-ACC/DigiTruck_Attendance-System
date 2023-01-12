@@ -3,11 +3,15 @@ const regionSchema = new mongoose.Schema({
   regionName: {
     type: String,
     required: [true, "Please provide region name"],
+    unique: true,
+  },
+  batches: {
+    type: Array,
+    default: [],
   },
   description: {
     type: String,
     required: [true, "Please provide description"],
-    unique: true,
   },
 });
 

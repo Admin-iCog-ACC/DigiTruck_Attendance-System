@@ -6,6 +6,11 @@ const router = express.Router();
 router.route("/").get(
   //authController.protect,
   //authController.restrictTo("user"),
+  studentController.getStudents
+);
+router.route("/all").get(
+  //authController.protect,
+  //authController.restrictTo("user"),
   studentController.getAllStudents
 );
 router

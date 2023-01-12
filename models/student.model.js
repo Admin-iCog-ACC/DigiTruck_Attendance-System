@@ -5,7 +5,7 @@ const studentSchema = new mongoose.Schema({
     required: [true, "Please provide  your name"],
     unique: true,
   },
-  Phone_no: {
+  Phone_Number: {
     type: String,
     required: [true, "Please provide your phone number"],
     unique: true,

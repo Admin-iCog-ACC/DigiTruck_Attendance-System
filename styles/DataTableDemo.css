@@ -1,0 +1,93 @@
+
+/* DataTableDemo.css */
+
+.datatable-crud-demo .table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media screen and (max-width: 960px) {
+    .datatable-crud-demo .table-header {
+        align-items: flex-start;
+    }
+}
+.datatable-crud-demo .product-image {
+    width: 100px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.datatable-crud-demo .p-dialog .product-image {
+    width: 150px;
+    margin: 0 auto 2rem auto;
+    display: block;
+}
+.datatable-crud-demo .confirmation-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p-button-success {
+    margin-right: 1rem !important;
+    background: #178c9f !important;
+    border-color: #178c9f !important;
+}
+.p-inputtext:enabled:hover {
+	border-color: #178c9f !important;
+}
+
+.p-button-warning {
+    background: #9f1717 !important;
+    border-color: #9f1717 !important;
+}
+
+.p-toast {
+    position: fixed !important;
+    right: 0% !important;
+}
+
+.p-button-check {
+    margin-right: 1rem !important;
+    background: #49c31c !important;
+    border-color: #49c31c !important;
+}
+
+.p-button-check:hover {
+    background: #3b9f17 !important;
+    border-color: #3b9f17 !important;
+}
+
+.p-button-success:hover {
+    background: #106774 !important;
+    border-color: #106774 !important;
+}
+
+.p-button-warning:hover {
+    background: #701010 !important;
+    border-color: #701010 !important;
+}
+    
+.p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #178c9f !important;
+    background: #178c9f !important;
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover{
+    border-color: #178c9f !important;
+}
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+	color: #178c9f !important;
+}
+
+@media screen and (max-width: 960px) {
+    .datatable-crud-demo .p-toolbar {
+        flex-wrap: wrap;
+    }
+    .datatable-crud-demo .p-toolbar .p-button {
+        margin-bottom: 0.25rem;
+    }
+    .datatable-crud-demo .table-header {
+        flex-direction: column;
+    }
+    .datatable-crud-demo .table-header .p-input-icon-left, .datatable-crud-demo .table-header input {
+        width: 100%;
+    }
+}
+                 

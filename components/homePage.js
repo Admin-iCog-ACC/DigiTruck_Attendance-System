@@ -47,7 +47,7 @@ const HomePage = () => {
         <>
             <div className="flex items-center justify-between px-5">
                 <div className="font-semibold text-2xl uppercase pl-5 mb-2">Regions</div>
-                <Button icon={`pi ${loading ? 'pi-spin pi-spinner' : 'pi-refresh'}`} label={loading ? 'Refreshing' : 'Refresh Region'} className="p-button p-button-success" onClick={refreshRegions} />
+                <Button icon={`pi ${loading ? 'pi-spin pi-spinner' : 'pi-refresh'}`} label={loading ? 'Refreshing' : 'Refresh Regions'} className="p-button p-button-success" onClick={refreshRegions} />
             </div>
             <div className="grid gap-x-10 gap-y-0 grid-cols-3 place-items-start px-10">
                 {regions === null && <p>Loading...</p>}

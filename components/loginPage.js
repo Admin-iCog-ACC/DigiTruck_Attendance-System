@@ -45,7 +45,7 @@ const LoginPage = () => {
                 <div className="rounded-[3rem] w-2/5 p-1 bg-gradient-to-b from-[#178c9f] via-white to-white">
                     <div className="w-full bg-white rounded-[3rem] p-6 sm:px-8 flex flex-col">
                         {error && (
-                            <div className="px-8 text-red-500 capitalize flex items-center">
+                            <div className="px-8 text-red-500 capitalize flex items-center -mb-4">
                                 <i className="pi pi-exclamation-triangle mr-3" />
                                 {error}
                             </div>

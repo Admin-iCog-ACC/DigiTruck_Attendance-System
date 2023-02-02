@@ -12,11 +12,11 @@ const BatchesPage = () => {
         const fetchBatches = async () => {
             try {
                 setLoading(true);
-                const res = await fetch(`${baseURL}/api/v1/regions/${region}`);
+                const res = await fetch(`${baseURL}/api/v1/students/${region}/all`);
                 const data = await res.json();
                 // console.log(data);
-                setbatches(data.region[0].batches);
-                setzregion(data.region[0]);
+                setbatches(data.Batchs);
+                setzregion(data.region);
                 setLoading(false);
 
             } catch (err) {

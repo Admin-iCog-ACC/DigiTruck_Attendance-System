@@ -8,7 +8,6 @@ import { baseURL } from '../constant';
 function Nav() {
     // const [scrollState, setScrollState] = useState(false);
     const [students, setstudents] = useState(null);
-    const capitals = ['Ottawa', 'Washington DC', 'Mexico City', 'London'];
     const [student, setstudent] = useState();
     const [studentSuggestions, setstudentSuggestions] = useState(null);
 
@@ -16,16 +15,18 @@ function Nav() {
     useEffect(() => {
         const fetchStudents = async () => {
             try {
-                var res = await fetch(`${baseURL}/api/v1/students/all`);
-                var data = await res.json();
-                setstudents(data.students);
+                if (router.asPath !== '/') {
+                    var res = await fetch(`${baseURL}/api/v1/students`);
+                    var data = await res.json();
+                    setstudents(data.students);
+                }
             } catch (err) {
                 console.log(err);
             }
         };
 
         fetchStudents();
-    }, []);
+    }, [router.asPath]);
     const filterStudent = function (e) {
         let results = students.filter((stud) => {
             if (stud.Name) return stud.Name.toLowerCase().startsWith(e.query.toLowerCase());
@@ -34,7 +35,7 @@ function Nav() {
     };
 
     return (
-        <div className={'w-full fixed top-0 z-10 h-24  bg-white shadow-lg'}>
+        <div className={`w-full top-0 z-10 h-24  bg-white shadow-lg ${router.asPath !== "/" ? "fixed": "hidden"}`}>
             <div className="max-w-[1225px] xl:mx-auto mx-5 flex justify-between items-center ">
                 <div className={'h-24 w-1/2 relative  flex items-start '}>
                     <div className="hover:cursor-pointer flex items-center" onClick={() => router.replace('/home')}>

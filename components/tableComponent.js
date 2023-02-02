@@ -53,15 +53,15 @@ const TableComponent = () => {
                     // Code using query
                     var { region, batch } = router.query;
                     setzregion(region);
-                    var res = await fetch(`${baseURL}/api/v1/students?region=${region}&batch=${batch}`);
+                    var res = await fetch(`${baseURL}/api/v1/students/${region}/${batch}`);
                     var data = await res.json();
                     // console.log(data);
                     // setbatches(data.region[0].batches);
                     // setregion(data.region[0]);
-                    setstudents(data.student);
-                    res = await fetch(`${baseURL}/api/v1/regions?region=${region}&batch=${batch}`);
-                    data = await res.json();
-                    setzbatch(data.tempBatch[0]);
+                    setstudents(data.students);
+                    // res = await fetch(`${baseURL}/api/v1/regions?region=${region}&batch=${batch}`);
+                    // data = await res.json();
+                    setzbatch(data.batch);
                     setLoading(false);
                 }
                 // console.log(router.asPath);
@@ -202,22 +202,22 @@ const TableComponent = () => {
         }
     };
 
-    const markAsTaken = async () => {
-        setzbatch({ ...zbatch, completed: !zbatch.completed });
-        try {
-            // setLoading(true);
-            const res = await fetch(`${baseURL}/api/v1/regions/${zregion}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ batch: zbatch.name })
-            });
-            await res.json();
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    // const markAsTaken = async () => {
+    //     setzbatch({ ...zbatch, completed: !zbatch.completed });
+    //     try {
+    //         // setLoading(true);
+    //         const res = await fetch(`${baseURL}/api/v1/completed/${zregion}`, {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ batch: zbatch.name })
+    //         });
+    //         await res.json();
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     const findIndexById = (id) => {
         let index = -1;
@@ -366,12 +366,12 @@ const TableComponent = () => {
         <div className="table-header">
             <h5 className="mx-0 my-1 text-2xl text-black">Students List</h5>
             <div>
-                {zbatch && <Button
+                {/* {zbatch && <Button
                     icon="pi pi-check"
                     label={zbatch.completed ? 'Attendance Taken' : 'Mark as Taken'}
                     className={`p-button ${zbatch.completed ? 'p-button-check' : 'p-button-success'}`}
                     onClick={() => markAsTaken()}
-                />}
+                />} */}
                 <Button icon="pi pi-plus" label="Add Student" className="p-button p-button-success" onClick={() => addStudent()} />
                 <span className="p-input-icon-left">
                     <i className="pi pi-search" />

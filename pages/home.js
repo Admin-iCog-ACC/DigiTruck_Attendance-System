@@ -12,7 +12,7 @@ export default function Home() {
             <Head>
                 <title>Home - DigiTruck Ethiopia</title>
             </Head>
-            <Nav />
+            {/* <Nav /> */}
             <div className="p-10 bg-[#dffafe] min-h-[100vh]">
                 <div className="px-8 py-14 mt-24 rounded-3xl drop-shadow-md bg-white">
                     <HomePage />
